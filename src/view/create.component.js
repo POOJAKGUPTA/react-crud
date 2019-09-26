@@ -1,45 +1,48 @@
 import React, { Component } from 'react';
 
-const $ = window.$;
-export default class Create extends Component {
-     handleClick() {
-    var name = this.refs.name.value;
-    console.log("this.ref.name.value")
-    // var description = this.refs.description.value;
-    $.ajax({
-      url: "http://localhost:5000/blogs",
-      type: "POST",
-      data: { blog: { name: name } },
-      success: response => {
-        console.log("it worked!", response);
-      }
-    });
+class Create extends Component {
+  constructor(props){
+    super(props)
+      this.state = {
+        name: '',
+        business_nbame: '',
+        gst_no:  '',
+    }
+
   }
+   changeHandler = (e) => {
+        this.setState({[e.target.name]: e.target.vale})
+      }
+    submitHandler = (e) => {
+      e.preventDefault()
+      console.log(this.state)
+    }
     render() {
+      const { name, business_nbame, gst_no } = this.state
         return (
             <div style={{marginTop: 10}}>
             	<p>Welcome to Create Component!!</p>
                 <h3>Add New Business</h3>
-                <form>
+                <form  onSubmit={this.submitHandler} >
                     <div className="form-group">
                         <label>Add Person Name:  </label>
-                        <input ref="name" className="form-control"/>
+                        <input type="text" name="name" value = {name} onChange={this.changeHandler} className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label>Add Business Name: </label>
-                        <input ref="business" className="form-control"/>
+                        <input type="text"  name="business_nbame" value = {business_nbame} onChange={this.changeHandler} className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label>Add GST Number: </label>
-                        <input ref="gstno" className="form-control"/>
+                        <input type="text"  name="gst_no" value = {gst_no} onChange={this.changeHandler} className="form-control"/>
                     </div>
                     <div className="form-group">
-                        <input ref="submit" value="Register Business" className="btn btn-primary"/>
-                         <button onClick={this.handleClick}>Submit</button>
+                        <button type="submit" value="Register Business" className="btn btn-primary"/>
                     </div>
                 </form>
             </div>
         )
     }
 }
+ export default Create;
 
