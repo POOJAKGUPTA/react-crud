@@ -8,6 +8,8 @@ import Create from './view/create.component';
 import Edit from './view/edit.component';
 import Index from './view/index.component';
 import Food from './foodblog';
+import Showapi from './show_api';
+
 
 class App extends Component {
   render() {
@@ -33,6 +35,9 @@ class App extends Component {
                 <li className="nav-item">
                   <Link to={'/food'} className="nav-link">food</Link>
                 </li>
+                 <li className="nav-item">
+                  <Link to={'/shw_api'} className="nav-link">Show Api</Link>
+                </li>
               </ul>
             </div>
           </nav> <br/>
@@ -42,6 +47,8 @@ class App extends Component {
               <Route path='/edit/:id' component={ Edit } />
               <Route path='/index' component={ Index } />
               <Route path='/food' component={ Food } />
+              <Route path='/shw_api' component={ Showapi } />
+
           </Switch>
         </div>
       </Router>

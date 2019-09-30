@@ -22,14 +22,16 @@ var poo = ""
     	} else {
     		poo = (<div>
     			<table>
+            <tbody>
     			<tr><th>Title</th><th>First name</th><th>Last name</th><th>Gender</th></tr>
     			<tr>
               <td>{this.state.person.name.title}</td>
               <td>{this.state.person.name.first}</td>
               <td>{this.state.person.name.last}</td>
               <td>{this.state.person.gender}</td>
-              </tr>
-              </table>
+          </tr>
+          </tbody>
+            </table>
             </div>)
     	}
         return (
