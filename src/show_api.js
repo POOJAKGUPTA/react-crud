@@ -3,7 +3,7 @@ import React, { Component } from 'react';
  export default class Index extends Component {
  	state = {
  		loading: true,
- 		person: [],	
+        person:[],
  	};
 
  	async componentDidMount() {
@@ -16,8 +16,22 @@ import React, { Component } from 'react';
  	}
     render() {
         return (
-            this.state.person.map(function(item))
+            <div>
+                <table>
+                    <tbody>
+                    <tr><th>Id</th><th>User Id</th><th>Title</th><th>Body</th></tr>
+                {this.state.person.map((person, index) => (
+                    <div>
+                        <tr>
+                        <td>{person.id}</td>
+                        <td>{person.userId} </td>
+                        </tr>
+                    </div>
+
+                ))}
+                </tbody>
+             </table>
+            </div>
         )
     }
 }
-
