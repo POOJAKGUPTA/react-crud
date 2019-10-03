@@ -9,6 +9,8 @@ import Edit from './view/edit.component';
 import Index from './view/index.component';
 import Food from './foodblog';
 import Showapi from './show_api';
+import Form from './form';
+
 
 
 class App extends Component {
@@ -38,6 +40,9 @@ class App extends Component {
                  <li className="nav-item">
                   <Link to={'/shw_api'} className="nav-link">Show Api</Link>
                 </li>
+                 <li className="nav-item">
+                  <Link to={'/form'} className="nav-link">Form</Link>
+                </li>
               </ul>
             </div>
           </nav> <br/>
@@ -48,7 +53,7 @@ class App extends Component {
               <Route path='/index' component={ Index } />
               <Route path='/food' component={ Food } />
               <Route path='/shw_api' component={ Showapi } />
-
+              <Route path="/form" render={(props) => <Form text="Hello, " {...props} />} />
           </Switch>
         </div>
       </Router>
@@ -57,3 +62,4 @@ class App extends Component {
 }
 
 export default App;
+
